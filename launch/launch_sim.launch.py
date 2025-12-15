@@ -34,6 +34,18 @@ def generate_launch_description():
                                    '-entity', 'my_bot'],
                         output='screen')
 
+    # Vid 1 ROS2_control
+    diff_drive_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["diff_cont"],
+    )
+    # Vid 1 ROS2_control
+    joint_broad_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_broad"],
+    )
 
 
     # Launch them all!
@@ -41,4 +53,8 @@ def generate_launch_description():
         rsp,
         gazebo,
         spawn_entity,
+        # Vid 1 ROS2_control
+        diff_drive_spawner,
+        joint_broad_spawner
+        # Vid 1 ROS2_control
     ])
